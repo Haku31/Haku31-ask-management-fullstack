@@ -12,9 +12,9 @@
 
 ## 🌐 Demo en Vivo
 
-- **Frontend**: [https://task-app.vercel.app](#) *(Reemplazar con tu URL)*
-- **Backend API**: [https://task-api.onrender.com](#) *(Reemplazar con tu URL)*
-- **Swagger Docs**: [https://task-api.onrender.com/swagger-ui.html](#) *(Reemplazar con tu URL)*
+- **Frontend**: [https://task-management-app-jxe7.onrender.com](https://task-management-app-jxe7.onrender.com)
+- **Backend API**: [https://haku31-ask-management-fullstack.onrender.com](https://haku31-ask-management-fullstack.onrender.com)
+- **Swagger Docs**: [https://haku31-ask-management-fullstack.onrender.com/swagger-ui.html](https://haku31-ask-management-fullstack.onrender.com/swagger-ui.html)
 
 ## 📸 Capturas de Pantalla
 
