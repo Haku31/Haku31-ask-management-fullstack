@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -170,12 +170,11 @@ export const LoginForm: React.FC = () => {
         </form>
 
         <Box sx={{ mt: 2, textAlign: 'center' }}>
-          <Typography 
-            variant="caption" 
-            color="text.secondary"
-            sx={{ fontSize: { xs: '0.688rem', sm: '0.75rem' } }}
-          >
-            Usuario: testuser | Password: password123
+          <Typography variant="body2">
+            ¿No tienes cuenta?{' '}
+            <Link to="/register" style={{ textDecoration: 'none', color: '#1976d2' }}>
+              Regístrate aquí
+            </Link>
           </Typography>
         </Box>
       </Paper>

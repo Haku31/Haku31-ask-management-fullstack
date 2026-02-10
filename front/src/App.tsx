@@ -5,6 +5,7 @@ import { CssBaseline } from '@mui/material';
 import { ErrorBoundary } from './shared/components/ErrorBoundary';
 import { PrivateRoute } from './features/auth/components/PrivateRoute';
 import { LoginPage } from './pages/LoginPage';
+import { RegisterPage } from './pages/RegisterPage';
 import { TasksPage } from './pages/TasksPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { theme } from './shared/theme/theme';
@@ -25,6 +26,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route
               path="/dashboard"
               element={
