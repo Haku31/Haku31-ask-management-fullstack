@@ -1,0 +1,15 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/tasks_db_test
+      database: tasks_db_test
+
+jwt:
+  secret: testSecretKeyForJwtTokenGenerationAndValidation
+  expiration: 3600000  # 1 hour for tests
+
+logging:
+  level:
+    root: INFO
+    com.seek.tasks: DEBUG
+    org.springframework.data.mongodb: DEBUG

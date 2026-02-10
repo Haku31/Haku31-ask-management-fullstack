@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: tasks-mongodb
+    environment:
+      MONGO_INITDB_DATABASE: tasks_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tasks-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tasks-api
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      MONGODB_URI: mongodb://mongodb:27017/tasks_db
+      MONGODB_DATABASE: tasks_db
+      JWT_SECRET: mySecretKeyForJwtTokenGenerationAndValidationPleaseChangeInProduction
+      JWT_EXPIRATION: 86400000
+      SERVER_PORT: 8080
+    ports:
+      - "8081:8080"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - tasks-network
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  tasks-network:
+    driver: bridge

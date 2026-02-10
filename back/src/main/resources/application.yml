@@ -1,0 +1,81 @@
+spring:
+  application:
+    name: tasks-api
+  
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/tasks_db}
+      database: ${MONGODB_DATABASE:tasks_db}
+      auto-index-creation: true
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: UTC
+
+server:
+  port: ${SERVER_PORT:8080}
+  error:
+    include-message: always
+    include-binding-errors: always
+  compression:
+    enabled: true
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:mySecretKeyForJwtTokenGenerationAndValidationPleaseChangeInProduction}
+  expiration: ${JWT_EXPIRATION:86400000}  # 24 hours in milliseconds
+
+# Logging
+logging:
+  level:
+    root: INFO
+    com.seek.tasks: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# OpenAPI/Swagger Configuration
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    operationsSorter: method
+    tagsSorter: alpha
+  show-actuator: false
+
+---
+# Development Profile
+spring:
+  config:
+    activate:
+      on-profile: dev
+  
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/tasks_db_dev
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.data.mongodb: DEBUG
+
+---
+# Production Profile
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+logging:
+  level:
+    root: WARN
+    com.seek.tasks: INFO
+    org.springframework.data.mongodb: INFO
