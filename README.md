@@ -1,6 +1,6 @@
 # 📋 Task Management System - Full Stack Application
 
-> Sistema profesional de gestión de tareas construido con arquitectura moderna: **React + TypeScript** en el frontend y **Spring Boot + MongoDB** en el backend.
+> Sistema de gestión de tareas construido con arquitectura: **React + TypeScript** en el frontend y **Spring Boot + MongoDB** en el backend.
 
 [![React](https://img.shields.io/badge/React-18.2-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -15,6 +15,9 @@
 - **Frontend**: [https://task-management-app-jxe7.onrender.com](https://task-management-app-jxe7.onrender.com)
 - **Backend API**: [https://haku31-ask-management-fullstack.onrender.com](https://haku31-ask-management-fullstack.onrender.com)
 - **Swagger Docs**: [https://haku31-ask-management-fullstack.onrender.com/swagger-ui.html](https://haku31-ask-management-fullstack.onrender.com/swagger-ui.html)
+
+- **usuario prueba**: admin
+- **contraseña**: admin123
 
 ## 📸 Capturas de Pantalla
 
