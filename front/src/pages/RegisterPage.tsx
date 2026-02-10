@@ -38,7 +38,7 @@ export const RegisterPage: React.FC = () => {
 
     try {
       const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
-      const response = await axios.post(`${API_URL}/auth/register`, formData);
+      await axios.post(`${API_URL}/auth/register`, formData);
       
       // Auto login después del registro
       await dispatch(login({ 
