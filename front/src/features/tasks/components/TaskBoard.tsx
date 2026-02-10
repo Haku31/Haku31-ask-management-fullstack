@@ -5,6 +5,8 @@ import {
   DragOverlay,
   DragStartEvent,
   PointerSensor,
+  TouchSensor,
+  MouseSensor,
   useSensor,
   useSensors,
   useDroppable,
@@ -152,6 +154,17 @@ export const TaskBoard: React.FC<TaskBoardProps> = ({ tasks, onDelete, onUpdateS
   const [activeTask, setActiveTask] = useState<Task | null>(null);
 
   const sensors = useSensors(
+    useSensor(MouseSensor, {
+      activationConstraint: {
+        distance: 8,
+      },
+    }),
+    useSensor(TouchSensor, {
+      activationConstraint: {
+        delay: 250,
+        tolerance: 5,
+      },
+    }),
     useSensor(PointerSensor, {
       activationConstraint: {
         distance: 8,
